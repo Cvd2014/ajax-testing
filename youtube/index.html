@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>YouTube</title>
+	<style type="text/css"></style>
+</head>
+<body>
+
+	<h1></h1>
+	<a href=""><img src=""></a>
+
+
+
+
+
+
+
+
+	<script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+	<script type="text/javascript">
+	var file="youTube.json";
+	var dataNeeded=['title', 'thumbnail','content']
+
+	$.ajax({
+		url:file, 
+		dataType:"json", 
+		success: function(dataFolder){
+			var title= dataFolder.data.items[0].description;
+			var thumbnail=dataFolder.data.items[0].thumbnail.hqDefault;
+			var url=dataFolder.data.items[0].content["5"];
+
+			$("h1").text(title);
+			$("img").attr('src',thumbnail);
+			$("a").attr('href', url);
+	}
+})
+
+
+	</script>
+
+</body>
+</html>
